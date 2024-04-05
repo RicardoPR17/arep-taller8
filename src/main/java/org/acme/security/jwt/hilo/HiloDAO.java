@@ -1,4 +1,3 @@
-
 package org.acme.security.jwt.hilo;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -8,9 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
+import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Projections;
 
 public class HiloDAO {
     private final MongoCollection<Document> coleccionHilo;
@@ -18,24 +20,30 @@ public class HiloDAO {
     public HiloDAO(MongoDatabase database) {
         this.coleccionHilo = database.getCollection("hilo");
 
-        Document hiloPrincipal = new Document("nombre", "Principal").append("posts", new ArrayList<Document>());
+        Long documentos = coleccionHilo.countDocuments();
 
-        coleccionHilo.insertOne(hiloPrincipal);
+        if (documentos.intValue() == 0) {
+            Document hiloPrincipal = new Document("nombre", "Principal")
+                    .append("posts", new ArrayList<Document>());
+            coleccionHilo.insertOne(hiloPrincipal);
+        }
     }
 
-    public Document obtenerHilo() {
-        Document hilo = coleccionHilo.find().first();
+    public String obtenerHilo() {
+        Bson projection = Projections.fields(Projections.include("nombre", "posts"), Projections.excludeId());
+        Document hilo = coleccionHilo.find().projection(projection).first();
+        Gson json = new Gson();
         if (hilo != null) {
-            return hilo;
+            return json.toJson(hilo);
         } else {
-            return new Document();
+            return json.toJson(new Document());
         }
     }
 
     public void añadirPost(String arroba, String mensaje) {
         List<Document> post = (List<Document>) coleccionHilo.find().first().get("posts");
-        post.add(new Document("arroba", arroba).append("mensaje", mensaje));
+        post.addFirst(new Document("arroba", arroba).append("mensaje", mensaje));
 
-        coleccionHilo.findOneAndUpdate(eq("nombre", "principal"), set("posts", post));
+        coleccionHilo.findOneAndUpdate(eq("nombre", "Principal"), set("posts", post));
     }
 }

@@ -3,10 +3,13 @@ package org.acme.security.jwt.usuario;
 import static com.mongodb.client.model.Filters.eq;
 
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
+import com.google.gson.Gson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Projections;
 
 public class UsuarioDAO {
     private final MongoCollection<Document> coleccionUsuario;
@@ -29,12 +32,16 @@ public class UsuarioDAO {
         }
     }
 
-    public Document obtenerUsuario(String nombre) {
-        Document usuario = coleccionUsuario.find(eq("arroba", "@" + nombre.replace(" ", "_"))).first();
+    public String obtenerUsuario(String nombre) {
+        Bson projection = Projections.fields(Projections.include("nombre", "arroba", "correo"),
+                Projections.excludeId());
+        Document usuario = coleccionUsuario.find(eq("arroba", "@" + nombre.replace(" ", "_"))).projection(projection)
+                .first();
+        Gson json = new Gson();
         if (usuario != null) {
-            return usuario;
+            return json.toJson(usuario);
         } else {
-            return new Document();
+            return json.toJson(new Document());
         }
     }
 
