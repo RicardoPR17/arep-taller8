@@ -1,7 +1,5 @@
 package org.acme.security.jwt.usuario;
 
-import java.util.Set;
-
 import org.acme.security.jwt.MongoUtil;
 
 import jakarta.ws.rs.Consumes;
