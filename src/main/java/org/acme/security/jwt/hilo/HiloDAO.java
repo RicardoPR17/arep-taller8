@@ -1,7 +1,11 @@
 
 package org.acme.security.jwt.hilo;
 
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.set;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bson.Document;
 
@@ -26,5 +30,12 @@ public class HiloDAO {
         } else {
             return new Document();
         }
+    }
+
+    public void añadirPost(String arroba, String mensaje) {
+        List<Document> post = (List<Document>) coleccionHilo.find().first().get("posts");
+        post.add(new Document("arroba", arroba).append("mensaje", mensaje));
+
+        coleccionHilo.findOneAndUpdate(eq("nombre", "principal"), set("posts", post));
     }
 }
