@@ -8,12 +8,13 @@ import org.acme.security.jwt.usuario.UsuarioDAO;
 @Path("/post")
 public class ServicioPost {
 
-    private PostDAO post= new PostDAO(MongoUtil.getDB());
+    private PostDAO post = new PostDAO(MongoUtil.getDB());
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{post}")
+    @Path("/{nombre}")
     public String obtenerPost(@PathParam("nombre") String nombre) {
-        return post.obtenerPostsUsuario("@"+nombre);
+        return post.obtenerPostsUsuario("@" + nombre);
     }
 
     @GET
@@ -21,7 +22,6 @@ public class ServicioPost {
     public String obtenerPosts() {
         return post.listarPost();
     }
-
 
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -31,7 +31,7 @@ public class ServicioPost {
 
     @DELETE
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void eliminarPost(@FormParam("arroba") String arroba , @FormParam("mensaje") String mensaje) {
+    public void eliminarPost(@FormParam("arroba") String arroba, @FormParam("mensaje") String mensaje) {
         post.eliminarPost(arroba, mensaje);
     }
 }

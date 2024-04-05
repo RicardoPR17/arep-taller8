@@ -6,10 +6,18 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
+import com.mongodb.client.result.DeleteResult;
+
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import static com.mongodb.client.model.Filters.eq;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 
 public class PostDAO {
 
@@ -27,24 +35,26 @@ public class PostDAO {
 
     public String listarPost() {
         Gson json = new Gson();
-        FindIterable<Document> posts = coleccionPost.find();
+        Bson projection = Projections.fields(Projections.include("usuario", "mensaje"),
+                Projections.excludeId());
+        List<Document> posts = new ArrayList<>();
+        coleccionPost.find().projection(projection).into(posts);
+
         return json.toJson(posts);
     }
 
     public String obtenerPostsUsuario(String arroba) {
-        Bson projection = Projections.fields(Projections.include( "usuario", "mensaje"),
+        Bson projection = Projections.fields(Projections.include("usuario", "mensaje"),
                 Projections.excludeId());
-        FindIterable<Document> postsUsuario = coleccionPost.find(eq("usuario",  arroba)).projection(projection);
+        List<Document> postsUsuario = new ArrayList<>();
+        coleccionPost.find(eq("usuario", arroba)).projection(projection).into(postsUsuario);
         Gson json = new Gson();
-        if (postsUsuario != null) {
-            return json.toJson(postsUsuario);
-        } else {
-            return json.toJson(new Document());
-        }
+
+        return json.toJson(postsUsuario);
     }
 
     public void eliminarPost(String arroba, String mensaje) {
-        Bson filtro= Filters.and(Filters.eq("arroba", arroba),Filters.eq("mensaje", mensaje));
+        Bson filtro = Filters.and(eq("usuario", arroba), eq("mensaje", mensaje));
         coleccionPost.deleteOne(filtro);
     }
 }
