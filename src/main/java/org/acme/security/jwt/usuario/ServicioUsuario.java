@@ -32,6 +32,6 @@ public class ServicioUsuario {
     @DELETE
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public void eliminarUsuario(@FormParam("nombre") String nombre) {
-        usuarios.obtenerUsuario(nombre);
+        usuarios.eliminarUsuario("@" + nombre);
     }
 }
