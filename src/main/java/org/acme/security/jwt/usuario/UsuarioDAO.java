@@ -1,7 +1,6 @@
 package org.acme.security.jwt.usuario;
 
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Updates.set;
 
 import org.bson.Document;
 
@@ -31,7 +30,12 @@ public class UsuarioDAO {
     }
 
     public Document obtenerUsuario(String nombre) {
-        return coleccionUsuario.find(eq("arroba", "@" + nombre.replace(" ", "_"))).first();
+        Document usuario = coleccionUsuario.find(eq("arroba", "@" + nombre.replace(" ", "_"))).first();
+        if (usuario != null) {
+            return usuario;
+        } else {
+            return new Document();
+        }
     }
 
     public void eliminarUsuario(String arroba) {
