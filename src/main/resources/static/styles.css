@@ -1,0 +1,84 @@
+body{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #7bd9de;
+}
+ 
+h1 {
+    background-color: #077075;
+    color: #fff;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+ 
+.usuario{
+    width: 25%;
+    margin: 15px;
+}
+.post{
+   
+    margin: 15px;
+}
+ 
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+   font-size: 20px;
+}
+ 
+input[type="text"], input[type="button"] {
+    width: 70%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+}
+ 
+#arroba {
+    margin-top: 1rem;
+}
+ 
+#posts {
+    margin-top: 1rem;
+}
+ 
+.submit_button {
+    background-color: #077075;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+ 
+.submit_button:hover {
+    background-color: #044145;
+}
+.img{
+    max-width: 100%;
+  width: 5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  outline: 2px solid var(--clr);
+  outline-offset: 4px;
+  fill: var(--clr);
+  background-color: #fff;
+}
+
+.formatoUsuario{
+    display: flex;
+    align-items: center;
+}
+
+.informacion{
+  margin-left: 20px;  
+}
+
+.contenedorImagen{
+    
+    height: 70px;
+
+}
