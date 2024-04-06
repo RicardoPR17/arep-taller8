@@ -54,59 +54,63 @@ Se tomo de base la clase del taller individual, para tener la cofiguración para
 
 Para probar el funcionamiento de la aplicación, acceda a un navegador e ingrese la ruta: http://localhost:8080/static/response.html
 
-![img.png](img.png)
+![img.png](Imagenes/img.png)
+
+En caso de no contar con un usuario existente, puedes hacer una petición en postman para crear un usuario:
+
+![img.png](Imagenes/img.png)
 
 Ingrese el nombre de usuario de un usuario existente y de clic en el boto ok, aquí se confirma el @ de la persona, con el cual van a quedar publicados los post:
 
-![img_1.png](img_1.png)
+![img_1.png](Imagenes/img_1.png)
 
 Puede escribir un post en el formulario y dar clic en publicar post, podra verificar que la lista se post se actualiza y muestra el post enviado:
 
-![img_2.png](img_2.png)
+![img_2.png](Imagenes/img_2.png)
 
 ## Pruebas del S3
 
 Para esto se subieron los archivos estaticos al servicio de S3 y se hicieron publicos:
 
-![img_3.png](img_3.png)
+![img_3.png](Imagenes/img_3.png)
 
 Y se puede probar el acceso a los archivos estáticos con la siguiente url: https://paginataller8.s3.amazonaws.com/static/response.html
 
 Y se puede ver la siguiente página:
 
-![img_4.png](img_4.png)
+![img_4.png](Imagenes/img_4.png)
 
 ## Pruebas de login con cognito de AWS
 
 Primero se crea el servicio de cognito con sus respectivas configuraciones y una vez creado accedemos al servicio y creamos un usuario:
 
-![img_5.png](img_5.png)
+![img_5.png](Imagenes/img_5.png)
 
 Por las configuraciones establecidas, nos pide un múltiple factor de autenticación:
 
 Primero se verifica el correo:
 
-![img_6.png](img_6.png)
+![img_6.png](Imagenes/img_6.png)
 
 La siguiente es con un autenticador de celular, se escanea el QR y se coloca el código que nos entrega la aplicación:
 
-![img_7.png](img_7.png)
+![img_7.png](Imagenes/img_7.png)
 
 En caso de que ya se tenga una cuenta hacemos singin:
 
-![img_8.png](img_8.png)
+![img_8.png](Imagenes/img_8.png)
 
 Se requiere nuevamente la verificación:
 
-![img_9.png](img_9.png)
+![img_9.png](Imagenes/img_9.png)
 
 Y luego de que la autentiación termine satisfactoriamente, nos redirige al servicio S3 configurado anteriormente:
 
-![img_10.png](img_10.png)
+![img_10.png](Imagenes/img_10.png)
 
 Por su parte, en la consola de AWS se pueden ver los usuario creados y el estado de los mismos:
 
-![img_11.png](img_11.png)
+![img_11.png](Imagenes/img_11.png)
 
 ## Construido con
 
