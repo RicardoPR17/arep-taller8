@@ -1,6 +1,6 @@
-package org.acme.security.jwt.usuario;
+package org.acme.usuario;
 
-import org.acme.security.jwt.MongoUtil;
+import org.acme.MongoUtil;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;

@@ -1,4 +1,4 @@
-package org.acme.security.jwt.usuario;
+package org.acme.usuario;
 
 import static com.mongodb.client.model.Filters.eq;
 

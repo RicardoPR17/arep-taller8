@@ -1,8 +1,9 @@
-package org.acme.security.jwt.post;
+package org.acme.post;
+
+import org.acme.MongoUtil;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.acme.security.jwt.MongoUtil;
 
 @Path("/post")
 public class ServicioPost {
