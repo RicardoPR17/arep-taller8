@@ -3,7 +3,7 @@ function enviar() {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         document.getElementById("arroba").innerHTML =
-            this.responseText;
+            JSON.parse(this.responseText).arroba;
     };
     xhttp.open("GET", "/usuario/" + nombre);
     xhttp.send();
@@ -13,7 +13,7 @@ function posts() {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         document.getElementById("posts").innerHTML =
-            this.responseText;
+        JSON.stringify(JSON.parse(this.responseText).posts);
     };
     xhttp.open("GET", "/hilo");
     xhttp.send();
@@ -56,5 +56,5 @@ function msg() {
         },
         body: formBody
     })
-        .then(posts());
+        .then(posts);
 }

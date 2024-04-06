@@ -1,4 +1,4 @@
-package org.acme.security.jwt.usuario;
+package org.acme.usuario;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -32,11 +32,10 @@ public class UsuarioDAO {
         }
     }
 
-    public String obtenerUsuario(String nombre) {
+    public String obtenerUsuario(String arroba) {
         Bson projection = Projections.fields(Projections.include("arroba"),
                 Projections.excludeId());
-        Document usuario = coleccionUsuario.find(eq("arroba", nombre.replace(" ", "_"))).projection(projection)
-                .first();
+        Document usuario = coleccionUsuario.find(eq("arroba", arroba.replace(" ", "_"))).projection(projection).first();
         Gson json = new Gson();
         if (usuario != null) {
             return json.toJson(usuario);

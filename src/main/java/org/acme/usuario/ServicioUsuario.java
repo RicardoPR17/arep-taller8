@@ -1,6 +1,6 @@
-package org.acme.security.jwt.usuario;
+package org.acme.usuario;
 
-import org.acme.security.jwt.MongoUtil;
+import org.acme.MongoUtil;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -18,9 +18,9 @@ public class ServicioUsuario {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{nombre}")
-    public String obtenerUsuario(@PathParam("nombre") String nombre) {
-        return usuarios.obtenerUsuario(nombre).toString();
+    @Path("/{arroba}")
+    public String obtenerUsuario(@PathParam("arroba") String arroba) {
+        return usuarios.obtenerUsuario(arroba);
     }
 
     @POST

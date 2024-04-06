@@ -1,4 +1,4 @@
-package org.acme.security.jwt.hilo;
+package org.acme.hilo;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.set;

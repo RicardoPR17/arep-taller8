@@ -1,4 +1,4 @@
-package org.acme.security.jwt.post;
+package org.acme.post;
 
 import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;

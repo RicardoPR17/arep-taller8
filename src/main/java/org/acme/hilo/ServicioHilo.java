@@ -1,7 +1,7 @@
 
-package org.acme.security.jwt.hilo;
+package org.acme.hilo;
 
-import org.acme.security.jwt.MongoUtil;
+import org.acme.MongoUtil;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.FormParam;

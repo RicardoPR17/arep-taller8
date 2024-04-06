@@ -1,4 +1,4 @@
-package org.acme.security.jwt;
+package org.acme;
 
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;

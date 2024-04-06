@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>AREP-X</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body onload="posts()">
+  <body onload="posts()">
     <script src="response.js"></script>
     <h1>POSTS</h1>
 
     <form id="usuario">
-        <label for="title">Nombre de usuario</label><br>
-        <input type="text" id="nombre" name="nombre"><br>
-        <input type="button" value="OK" onclick="enviar()" class="submit_button">
+      <label for="title">Nombre de usuario</label>
+      <br />
+      <input type="text" id="nombre" name="nombre" />
+      <br />
+      <input type="button" value="OK" onclick="enviar()" class="submit_button" />
     </form>
 
-    <div id="arroba"></div><br>
+    <div id="arroba"></div>
+    <br />
 
     <form id="crearPost">
-        <label for="title">Escribe tu post</label><br>
-        <input type="text" id="mensaje" name="mensaje" maxlength="140"><br>
-        <input type="button" value="Publicar post" onclick="msg()" class="submit_button">
+      <label for="title">Escribe tu post</label>
+      <br />
+      <input type="text" id="mensaje" name="mensaje" maxlength="140" />
+      <br />
+      <input type="button" value="Publicar post" onclick="msg()" class="submit_button" />
     </form>
 
-    <div id="msg"></div><br>
+    <br />
 
     <div id="posts"></div>
-</body>
-
+  </body>
 </html>
