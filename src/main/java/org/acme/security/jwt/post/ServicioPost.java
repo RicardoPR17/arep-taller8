@@ -3,7 +3,6 @@ package org.acme.security.jwt.post;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.acme.security.jwt.MongoUtil;
-import org.acme.security.jwt.usuario.UsuarioDAO;
 
 @Path("/post")
 public class ServicioPost {
