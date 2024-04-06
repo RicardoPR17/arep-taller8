@@ -54,7 +54,7 @@ Se tomo de base la clase del taller individual, para tener la cofiguración para
 
 Para probar el funcionamiento de la aplicación, acceda a un navegador e ingrese la ruta: http://localhost:8080/static/response.html
 
-![img.png](Imagenes/img.png)
+![img_1.png](Imagenes/img_12.png)
 
 En caso de no contar con un usuario existente, puedes hacer una petición en postman para crear un usuario:
 
