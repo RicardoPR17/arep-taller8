@@ -33,9 +33,9 @@ public class UsuarioDAO {
     }
 
     public String obtenerUsuario(String nombre) {
-        Bson projection = Projections.fields(Projections.include("nombre", "arroba", "correo"),
+        Bson projection = Projections.fields(Projections.include("arroba"),
                 Projections.excludeId());
-        Document usuario = coleccionUsuario.find(eq("arroba", "@" + nombre.replace(" ", "_"))).projection(projection)
+        Document usuario = coleccionUsuario.find(eq("arroba", nombre.replace(" ", "_"))).projection(projection)
                 .first();
         Gson json = new Gson();
         if (usuario != null) {
