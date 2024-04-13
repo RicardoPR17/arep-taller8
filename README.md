@@ -86,25 +86,11 @@ Primero se crea el servicio de cognito con sus respectivas configuraciones y una
 
 ![img_5.png](Imagenes/img_5.png)
 
-Por las configuraciones establecidas, nos pide un múltiple factor de autenticación:
-
-Primero se verifica el correo:
-
-![img_6.png](Imagenes/img_6.png)
-
-La siguiente es con un autenticador de celular, se escanea el QR y se coloca el código que nos entrega la aplicación:
-
-![img_7.png](Imagenes/img_7.png)
-
 En caso de que ya se tenga una cuenta hacemos singin:
 
 ![img_8.png](Imagenes/img_8.png)
 
-Se requiere nuevamente la verificación:
-
-![img_9.png](Imagenes/img_9.png)
-
-Y luego de que la autentiación termine satisfactoriamente, nos redirige al servicio S3 configurado anteriormente:
+Y luego de que la autenticaión termine satisfactoriamente, nos redirige al servicio S3 configurado anteriormente:
 
 ![img_10.png](Imagenes/img_10.png)
 
