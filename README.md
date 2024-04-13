@@ -28,6 +28,12 @@ Para compilar y ejecutar el proyecto, se ejecuta el comando:
 ./mvnw compile quarkus:dev
 ```
 
+También es posible ejecutar este comando usando mvn, en vez de ./mvnw:
+
+```
+mvn quarkus:dev
+```
+
 > **_NOTA:_**  Es necesario tener corriendo un contenedor de mongodb en Docker. Para crear el conedor puede jecutar el siguiente comando:
 
 ```
@@ -97,6 +103,10 @@ Y luego de que la autenticaión termine satisfactoriamente, nos redirige al serv
 Por su parte, en la consola de AWS se pueden ver los usuario creados y el estado de los mismos:
 
 ![img_11.png](Imagenes/img_11.png)
+
+## Despliegue con Lambda
+
+Dada la configuración del proyecto no fue posible generar el archivo jar, debido a problemas relacionados con Quarkus y sus dependencias. Por lo tanto no se pudo hacer el despliegue en este servicio para su posterior conexión con Cognito y los archivos en el S3.
 
 ## Construido con
 
