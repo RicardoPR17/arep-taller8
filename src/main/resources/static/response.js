@@ -55,3 +55,8 @@ function msg() {
     body: formBody,
   }).then(posts);
 }
+
+function getAccessTokenFromUrl() {
+  var fragment = window.location.hash.substring(1);
+  return fragment.split("&")[0].split("=")[1];
+}
