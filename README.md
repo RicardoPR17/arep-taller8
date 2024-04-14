@@ -100,6 +100,8 @@ Y luego de que la autenticaión termine satisfactoriamente, nos redirige al serv
 
 ![img_10.png](Imagenes/img_10.png)
 
+Si observamos la URL, veremos un query llamado id_token que contiene el JWT asignado para el usuario.
+
 Por su parte, en la consola de AWS se pueden ver los usuario creados y el estado de los mismos:
 
 ![img_11.png](Imagenes/img_11.png)
